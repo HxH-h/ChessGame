@@ -1,6 +1,9 @@
 package com.game.Dao.Mapper;
 
+import com.game.Controller.ControllerPojo.FriendVO;
+import com.game.Controller.ControllerPojo.MessageVO;
 import com.game.Controller.ControllerPojo.PlayerVO;
+import com.game.Dao.Pojo.ChatMessage;
 import com.game.Dao.Pojo.GameHistory;
 import com.game.Dao.Pojo.Player;
 import org.apache.ibatis.annotations.Insert;
@@ -12,6 +15,11 @@ import java.util.List;
 
 @Mapper
 public interface PlayerMapper {
-    @Insert("insert into historychess(first,second,time,vic,turn,chess,winner,loser) values (#{uuidA},#{uuidB},#{datetime},#{whoWin},#{turn},#{chess},#{winner},#{loser})")
-    void saveHistory(String uuidA,String uuidB,String datetime,Integer whoWin,Integer turn,String chess,Integer winner,Integer loser);
+
+  
+    List<FriendVO> getFriends(String uuid);
+
+    List<MessageVO> getMessage(String userA, String userB , int limit);
+
+    void saveMessage(List<ChatMessage> messages);
 }
