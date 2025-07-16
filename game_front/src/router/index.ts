@@ -49,6 +49,12 @@ const routes: Array<RouteRecordRaw> = [
         name: 'dataAnalysis',
         meta: { isAuth: true },
         component: () => import('../views/player/DataAnalysis.vue')
+      },
+      {
+        path: '/friendmodule',
+        name: 'friendmodule',
+        meta: { isAuth: true },
+        component: () => import('../views/player/FriendModule.vue')
       }
     ]
   },
